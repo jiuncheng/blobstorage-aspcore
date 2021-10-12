@@ -1,0 +1,13 @@
+@model object
+
+@{
+    Layout = null;
+    ViewData["Title"] = "CreateNewContainer";
+}
+
+<h1>Create New Container</h1>
+
+<p>
+    The @ViewBag.name is created.
+    @(ViewBag.result == true ? "succeeded!" : "failed! Because the container is exist.")
+</p>

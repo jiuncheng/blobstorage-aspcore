@@ -1,0 +1,11 @@
+@{
+    ViewData["Title"] = "InsertSingleData";
+}
+
+<h1>Insert Single Data Result</h1>
+
+<p>
+    The data is inserted.
+    @(ViewBag.Result == 204 ? " successfully " : "unsuccessfully ")
+    into the table @ViewBag.TableName 
+</p>

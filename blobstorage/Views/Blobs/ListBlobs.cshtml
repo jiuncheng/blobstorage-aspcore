@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "ListBlobs";
+}
+
+<h1>Picture Gallery</h1>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item</li>
+    }
+</ul>
+<br />
+<br />
+
+<!-- Display as a picture gallery -->
+
+@if (ViewBag.message != null)
+{
+    <script>alert("@ViewBag.message");</script>
+}
+
+<ul>
+    @foreach (var item in Model)
+    {
+        string[] imageArray = item.Split("#");
+        <li>
+            <img src="@imageArray[1]" alt="" width="200px" height="200px" />
+            <label style="color:red;">@imageArray[0]</label>
+            <a asp-controller="Blobs" asp-action="Delete" asp-route-imagename="@imageArray[0]">Delete</a>
+            <a asp-controller="Blobs" asp-action="Download" asp-route-imagename="@imageArray[0]"
+                asp-route-imageurl="@imageArray[1]">Download</a>
+            <br />
+            <br />
+        </li>
+    }
+</ul>

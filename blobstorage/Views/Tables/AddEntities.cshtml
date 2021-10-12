@@ -1,0 +1,45 @@
+@model IEnumerable<Microsoft.WindowsAzure.Storage.Table.TableResult>
+
+@if (ViewBag.msg != null)
+{
+    <script>alert("@(ViewBag.msg)");</script>
+}
+
+<center>
+    <h1>Adding <i>Same Group of Entities</i> in Table Storage</h1>
+    <br/>
+    <hr/>
+    <br/>
+    @if (ViewBag.success != true)
+    {
+        <p>Technical issue: Unable to insert the data into the storage.</p>
+    }
+    else
+    {
+        <table border="1">
+            <tr>
+                <th>Customer's Family Name</th>
+                <th>Customer's Given Name</th>
+                <th>Customer's Address</th>
+                <th>Customer's Email</th>
+                <th>Customer's Birth Date</th>
+                <th>Insert Process Result Code</th>
+                <th>Success / Not Success</th>
+
+                @foreach (var results in Model)
+                {
+                    var displayResult = results.Result as blobstorage.Models.CustomerEntity;
+                    <tr>
+                        <td>@displayResult.PartitionKey</td>
+                        <td>@displayResult.RowKey</td>
+                        <td>@displayResult.Address</td>
+                        <td>@displayResult.Email</td>
+                        <td>@displayResult.BirthDate</td>
+                        <td>@results.HttpStatusCode</td>
+                        <td>@(results.HttpStatusCode == 204 ? "success" : "Not success")</td>
+                    </tr>
+                }
+            </tr>
+        </table>
+    }
+</center>

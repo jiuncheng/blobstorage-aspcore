@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "storage1": {
+      "restored": true,
+      "restoreTime": "2021-03-08T06:16:09.1744337Z"
+    },
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2021-03-08T06:16:08.1562701Z"
+    }
+  },
+  "parameters": {
+    "storage1.resourceGroupName": {
+      "Name": "storage1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "blobstorage"
+    },
+    "storage1.subscriptionId": {
+      "Name": "storage1.subscriptionId",
+      "Type": "subscription",
+      "Value": "37020b4f-d6fd-4871-a181-aae94bb5845f"
+    }
+  }
+}

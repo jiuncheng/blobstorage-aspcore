@@ -1,0 +1,31 @@
+@model object
+
+@{
+    ViewBag.Title = "title";
+}
+
+@if (ViewBag.msg != null)
+{
+    <script>alert("@(ViewBag.msg)");</script>
+}
+
+<center>
+    <h1>Search data from Table Storage</h1>
+    <br />
+    <hr />
+    <br />
+    <form method="POST" action="GetSingleEntity">
+        <p>Enter Family Name: <input type="text" value="" name="PartitionName" required /></p>
+        <p>Enter Given Name: <input type="text" value="" name="RowName" required /></p>
+        <p><input type="submit" value="Search Data based on name" name="submit" /></p>
+    </form>
+    <br />
+    <hr />
+    <br />
+    <h2>How to Search Group Data from the Table Storage?</h2>
+    <br />
+    <form action="GetGroupEntity" method="post">
+        <p>Enter Family Name: <input type="text" value="" name="PartitionName" required /></p>
+        <p><input type="submit" value="Search Data based on Partition Key!" name="submit" /></p>
+    </form>
+</center>
